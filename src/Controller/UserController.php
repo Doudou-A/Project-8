@@ -29,10 +29,9 @@ class UserController extends AbstractController
     public function createAction(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
 
-        $form->handleRequest($request);
-
+        $form = $userManager->form($user, $request);
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $password = $encoder->encodePassword($user, $user->getPassword());

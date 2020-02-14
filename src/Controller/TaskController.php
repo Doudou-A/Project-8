@@ -56,11 +56,15 @@ class TaskController extends AbstractController
      */
     public function createAction(TaskManager $taskManager, Request $request)
     {
+        $user = $this->getUser();
         $task = new Task();
 
-        $form = $taskManager->form($task, $request, 'create');
+        $form = $taskManager->form($task, $request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $taskManager->create($task, $user);
+
             return $this->redirectToRoute('task_list');
         }
 
@@ -74,9 +78,11 @@ class TaskController extends AbstractController
      */
     public function editAction(Task $task, TaskManager $taskManager, Request $request)
     {
-        $form = $taskManager->form($task, $request, 'edit');
+        $form = $taskManager->form($task, $request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $taskManager->edit($task);
             return $this->redirectToRoute('task_list');
         }
 

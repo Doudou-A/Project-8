@@ -33,13 +33,14 @@ class TaskManager
         $this->container->get('session')->getFlashBag()->add($type, $message);
     }
 
-    public function create($task)
+    public function create($task, $user)
     {
-        $user = $this->getUser();
         $task->setIsDone(false);
         $task->setUser($user);
 
         $this->persist($task);
+
+        $this->addFlash('success', 'La tâche a été bien été modifiée.');
     }
 
     public function delete($task){
@@ -58,22 +59,10 @@ class TaskManager
         }
     }
 
-    public function getUser()
+    public function edit($task)
     {
-        if (!$this->container->has('security.token_storage')) {
-            throw new \LogicException('The SecurityBundle is not registered in your application. Try running "composer require symfony/security-bundle".');
-        }
-
-        if (null === $token = $this->container->get('security.token_storage')->getToken()) {
-            return null;
-        }
-
-        if (!\is_object($user = $token->getUser())) {
-            // e.g. anonymous authentication
-            return null;
-        }
-
-        return $user;
+        $this->persist($task);
+        $this->addFlash('success', 'La tâche a été bien été modifiée.');
     }
 
     public function isDone($task)
@@ -85,14 +74,14 @@ class TaskManager
         $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
     }
 
-    public function form($task, $request, $action)
+    public function form($task, $request)
     {
         $form = $this->formFactory->create(TaskType::class, $task);
 
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        /* if ($form->isSubmitted() && $form->isValid()) {
             if ($action == 'create') {
+                
                 $this->create($task);
                 $this->addFlash('success', 'La tâche a été bien été ajoutée.');
             }elseif($action == 'edit'){
@@ -100,8 +89,7 @@ class TaskManager
                 $this->addFlash('success', 'La tâche a été bien été modifiée.');
             }
            
-        }
-
+        } */
         return $form;
     }
 
