@@ -21,7 +21,7 @@ class HomeControllerTest extends WebTestCase
         $this->assertSame(1, $crawler->filter('html:contains("Bienvenue sur Todo List")')->count());
     }
 
-    public function testAddNewUser()
+   /*  public function testAddNewUser()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/users/create');
@@ -38,5 +38,5 @@ class HomeControllerTest extends WebTestCase
         $client->followRedirect();
 
         echo $client->getResponse()->getContent();
-    }  
+    }   */
 }
