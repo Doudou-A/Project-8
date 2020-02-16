@@ -43,8 +43,8 @@ class TaskManager
         $this->addFlash('success', 'La tâche a été bien été modifiée.');
     }
 
-    public function delete($task){
-        $user = $this->getUser();
+    public function delete($task, $user){
+
         $userTask = $task->getUser();
         $role = $user->getRoles()[0];
 
