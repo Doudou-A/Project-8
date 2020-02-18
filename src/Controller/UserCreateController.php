@@ -18,9 +18,9 @@ class UserCreateController extends AbstractController
         $user = new User();
 
         $form = $userManager->form($user, $request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
-            
+
             $userManager->create($user);
 
             return $this->redirectToRoute('user_list');
