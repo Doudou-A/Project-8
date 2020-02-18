@@ -21,22 +21,22 @@ class HomeControllerTest extends WebTestCase
         $this->assertSame(1, $crawler->filter('html:contains("Bienvenue sur Todo List")')->count());
     }
 
-   /*  public function testAddNewUser()
+   public function testAddNewUser()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/users/create');
 
         $form = $crawler->selectButton('Ajouter')->form(); 
 
-        $form['user[username]'] = 'AdYehh';
-        $form['user[email]'] = 'emailName';
+        $form['user[username]'] = 'Username';
+        $form['user[email]'] = 'Email@gmail.com';
         $form['user[password]'] = 'password';
-        $form['user[roles]'] = 'role_admin';
+        $form['user[roles][0]'] = 'ROLE_ADMIN';
 
         $client->submit($form);
 
-        $client->followRedirect();
+        $crawler = $client->followRedirect();
 
-        echo $client->getResponse()->getContent();
-    }   */
+        $this->assertSame(1, $crawler->filter('html:contains("L\'utilisateur ajouté avec succès !")')->count()); 
+    }   
 }

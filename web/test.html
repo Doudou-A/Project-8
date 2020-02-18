@@ -1,17 +1,122 @@
 PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
 
+Error:         No code coverage driver is available
+
 Testing Project Test Suite
-[31;1mE[0m                                                                   1 / 1 (100%)
+[33;1mR[0m                                                                   1 / 1 (100%)<!DOCTYPE html>
+<html lang="fr">
 
-Time: 805 ms, Memory: 20.00 MB
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-There was 1 error:
+        <title>To Do List app</title>
 
-1) App\tests\Controller\HomeControllerTest::testAddNewTask
-InvalidArgumentException: The current node list is empty.
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-/Users/Adel/Documents/OpenClassroom/Projet8/ToDoList/vendor/symfony/dom-crawler/Crawler.php:883
-/Users/Adel/Documents/OpenClassroom/Projet8/ToDoList/tests/Controller/HomeControllerTest.php:21
+        <!-- Custom CSS -->
+        <link href="/css/shop-homepage.css" rel="stylesheet">
 
-[37;41mERRORS![0m
-[37;41mTests: 1[0m[37;41m, Assertions: 0[0m[37;41m, Errors: 1[0m[37;41m.[0m
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">To Do List app</a>
+
+                    <img src="/img/Logo_OpenClassrooms.png" alt="OpenClassrooms" />
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <a href="/users/create" class="btn btn-primary">Créer un utilisateur</a>
+
+                
+                                <a href="/login" class="btn btn-success">Se connecter</a>
+                            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                                            <div class="alert alert-success" role="alert">
+                            <strong>Superbe !</strong> L&#039;utilisateur ajouté avec succès !
+                        </div>
+                    
+                    
+                    <h1>Liste des utilisateurs</h1>                                    </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-12">
+                                <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom d'utilisateur</th>
+                    <th>Adresse d'utilisateur</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <th scope="row">1</th>
+                        <td>Username</td>
+                        <td>Email@gmail.com</td>
+                        <td>
+                            <a href="/users/9/edit" class="btn btn-success btn-sm">Edit</a>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <div class="container">
+
+            <hr>
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="pull-right">Copyright &copy; OpenClassrooms</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
+
+Time: 1.38 seconds, Memory: 28.00 MB
+
+There was 1 risky test:
+
+1) App\tests\Controller\HomeControllerTest::testAddNewUser
+This test did not perform any assertions
+
+/Users/Adel/Documents/OpenClassroom/Projet8/ToDoList/tests/Controller/HomeControllerTest.php:24
+
+[30;43mOK, but incomplete, skipped, or risky tests![0m
+[30;43mTests: 1[0m[30;43m, Assertions: 0[0m[30;43m, Risky: 1[0m[30;43m.[0m

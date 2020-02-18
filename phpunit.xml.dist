@@ -14,7 +14,7 @@
         <server name="SHELL_VERBOSITY" value="-1" />
         <server name="SYMFONY_PHPUNIT_REMOVE" value="" />
         <server name="SYMFONY_PHPUNIT_VERSION" value="7.5" />
-        <server name="DATABASE_URL" value="mysql://root:root@localhost:3306/ToDoList" />
+        <server name="DATABASE_URL" value="mysql://root:root@localhost:3306/ToDoList_test" />
     </php>
 
     <testsuites>
@@ -28,11 +28,11 @@
             <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
-    <logging>
-        <log type="coverage-text" target="php://stdout"/>
-    </logging>
 
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+    </logging>
 </phpunit>

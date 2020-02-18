@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class UserType extends AbstractType
@@ -17,7 +18,7 @@ class UserType extends AbstractType
         $builder
             ->add('username')
             ->add('email')
-            ->add('password')
+            ->add('password', PasswordType::class)
             ->add('roles', CollectionType::class, [
                 'entry_type' => ChoiceType::class,
                 'entry_options' => [
