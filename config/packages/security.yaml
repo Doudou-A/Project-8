@@ -32,3 +32,4 @@ security:
 
     access_control:
         - { path: ^/tasks/, roles: ROLE_USER }
+        - { path: ^/users/, roles: ROLE_ADMIN }

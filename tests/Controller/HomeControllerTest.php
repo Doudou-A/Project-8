@@ -23,7 +23,11 @@ class HomeControllerTest extends WebTestCase
 
    public function testAddNewUser()
     {
-        $client = static::createClient();
+        $client = static::createClient([], [
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'password',
+        ]);
+
         $crawler = $client->request('GET', '/users/create');
 
         $form = $crawler->selectButton('Ajouter')->form(); 
@@ -38,5 +42,6 @@ class HomeControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         $this->assertSame(1, $crawler->filter('html:contains("L\'utilisateur ajouté avec succès !")')->count()); 
+
     }   
 }

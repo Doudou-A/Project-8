@@ -12,6 +12,7 @@ class IndexController extends AbstractController
      */
     public function indexAction()
     {
+        phpinfo();
         return $this->render('index.html.twig');
     }
 }
