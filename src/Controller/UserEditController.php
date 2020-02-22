@@ -21,6 +21,8 @@ class UserEditController extends AbstractController
 
             $userManager->edit($user);
 
+            $this->addFlash('success', "L'utilisateur a bien été modifié");
+
             return $this->redirectToRoute('user_list');
         }
 

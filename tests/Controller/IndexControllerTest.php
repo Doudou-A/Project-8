@@ -3,7 +3,7 @@ namespace App\tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class HomeControllerTest extends WebTestCase
+class IndexControllerTest extends WebTestCase
 {
     public function testHomepageIsUp()
     {

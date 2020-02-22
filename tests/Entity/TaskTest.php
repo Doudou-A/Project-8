@@ -4,20 +4,13 @@ namespace App\Tests\Entity;
 
 require('vendor/autoload.php');
 
+use DateTime;
 use App\Entity\Task;
 use App\Entity\User;
-use DateTime;
 use PHPUnit\Framework\TestCase;
 
 class TaskTest extends TestCase
-{/* 
-    public function testId()
-    {
-        $task = new Task();
-
-        $this->assertEquals(1, $task->getId());
-    }
- */
+{
     public function testCreateAt()
     {
         $task = new Task();
@@ -59,7 +52,7 @@ class TaskTest extends TestCase
         $task = new Task();
         $user = new User();
         $task->setUser($user);
-
+        
         $this->assertEquals(new User(), $task->getUser());
     }  
 }
