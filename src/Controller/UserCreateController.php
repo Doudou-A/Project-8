@@ -23,6 +23,8 @@ class UserCreateController extends AbstractController
 
             $userManager->create($user);
 
+            $this->addFlash('success', 'L\'utilisateur ajouté avec succès !');
+
             return $this->redirectToRoute('user_list');
         }
 
