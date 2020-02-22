@@ -18,7 +18,8 @@ class TaskListFinishController extends AbstractController
 
         return $this->render(
             'task/list.html.twig',
-            ['tasks' => $tasks]
+            ['tasks' => $tasks,
+            'listFinish' => true]
         );
     }
 }

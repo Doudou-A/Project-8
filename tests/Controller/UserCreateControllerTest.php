@@ -3,25 +3,9 @@ namespace App\tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class HomeControllerTest extends WebTestCase
+class UserCreateControllerTest extends WebTestCase
 {
-    public function testHomepageIsUp()
-    {
-        $client = static::createClient();
-        $client->request('GET', '/');
-
-        $this->assertSame(200, $client->getResponse()->getStatusCode());
-    }
-
-    public function testHomePage()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/');
-
-        $this->assertSame(1, $crawler->filter('html:contains("Bienvenue sur Todo List")')->count());
-    }
-
-   public function testAddNewUser()
+    public function testAddNewUser()
     {
         $client = static::createClient([], [
             'PHP_AUTH_USER' => 'admin',
@@ -29,6 +13,10 @@ class HomeControllerTest extends WebTestCase
         ]);
 
         $crawler = $client->request('GET', '/users/create');
+
+        $this->assertSame(200, $client->getResponse()->getStatusCode());
+
+        $this->assertSame(1, $crawler->filter('html:contains("Créer un utilisateur")')->count());
 
         $form = $crawler->selectButton('Ajouter')->form(); 
 
@@ -43,5 +31,5 @@ class HomeControllerTest extends WebTestCase
 
         $this->assertSame(1, $crawler->filter('html:contains("L\'utilisateur ajouté avec succès !")')->count()); 
 
-    }   
+    }
 }

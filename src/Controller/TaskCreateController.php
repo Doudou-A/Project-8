@@ -25,6 +25,8 @@ class TaskCreateController extends AbstractController
 
             $taskManager->create($task, $user);
 
+            $this->addFlash('success', 'La tâche a été bien été créée !');
+
             return $this->redirectToRoute('task_list');
         }
 

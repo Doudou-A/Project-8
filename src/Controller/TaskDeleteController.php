@@ -16,8 +16,19 @@ class TaskDeleteController extends AbstractController
     {
         $user = $this->getUser();
 
-        $taskManager->delete($task, $user);
+        $userTask = $task->getUser();
 
+        $role = $user->getRoles()[0];
+        
+        if ($userTask == null AND $role == "ROLE_ADMIN" OR $userTask == $user) {
+
+            $taskManager->remove($task);
+            $this->addFlash('success', 'La tâche a bien été supprimée !');
+
+        } else {
+
+            $this->addFlash('error', sprintf('Vous n\'êtes pas autorisé à supprimer la tâche %s !' , $task->getTitle()));
+        }
         return $this->redirectToRoute('task_list');
     }
 }

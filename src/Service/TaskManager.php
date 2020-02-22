@@ -39,30 +39,11 @@ class TaskManager
         $task->setUser($user);
 
         $this->persist($task);
-
-        $this->addFlash('success', 'La tâche a été bien été modifiée.');
-    }
-
-    public function delete($task, $user){
-
-        $userTask = $task->getUser();
-        $role = $user->getRoles()[0];
-
-        if ($userTask == null AND $role == "ROLE_ADMIN" OR $userTask == $user) {
-
-            $this->remove($task);
-            $this->addFlash('success', 'La tâche a bien été supprimée.');
-
-        } else {
-
-            $this->addFlash('error', sprintf('Vous n\'êtes pas autorisé à supprimer la tâche %s !' , $task->getTitle()));
-        }
     }
 
     public function edit($task)
     {
         $this->persist($task);
-        $this->addFlash('success', 'La tâche a été bien été modifiée.');
     }
 
     public function isDone($task)

@@ -21,6 +21,9 @@ class TaskEditController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $taskManager->edit($task);
+
+            $this->addFlash('success', 'La tâche a été bien été modifiée !');
+
             return $this->redirectToRoute('task_list');
         }
 

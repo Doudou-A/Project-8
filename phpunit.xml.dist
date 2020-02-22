@@ -23,6 +23,10 @@
         </testsuite>
     </testsuites>
 
+    <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
+    </extensions>
+
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src</directory>
@@ -32,7 +36,4 @@
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
-    <logging>
-        <log type="coverage-text" target="php://stdout"/>
-    </logging>
 </phpunit>
