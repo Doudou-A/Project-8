@@ -53,7 +53,7 @@ class UserTest extends TestCase
         $task = new Task();
         $user = new User();
         $user->addTask($task);
-        dd($user->getTasks());
+
         $this->assertEquals(new Task(), $user->getTasks());
     }  
 }

@@ -14,7 +14,7 @@ class TaskEditController extends AbstractController
     /**
      * @Route("/tasks/{id}/edit", name="task_edit")
      */
-    public function editAction(Task $task, TaskManager $taskManager, Request $request)
+    public function editTaskAction(Task $task, TaskManager $taskManager, Request $request)
     {
         $form = $taskManager->form($task, $request);
 

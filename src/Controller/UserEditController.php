@@ -13,7 +13,7 @@ class UserEditController extends AbstractController
     /**
      * @Route("/users/{id}/edit", name="user_edit")
      */
-    public function editAction(User $user, Request $request, UserManager $userManager)
+    public function editUserAction(User $user, Request $request, UserManager $userManager)
     {
         $form = $userManager->form($user, $request);
 
