@@ -14,11 +14,13 @@ class TaskListController extends AbstractController
     public function listAction(TaskRepository $repo)
     {
         $tasks = $repo->findAll();
+        $user = $this->getUser();
 
         return $this->render(
             'task/list.html.twig',
             ['tasks' => $tasks,
-             'list' => true]
+             'list' => true,
+             'user' => $user]
         );
     }
 }

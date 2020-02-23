@@ -49,24 +49,21 @@ Testing Project Test Suite
 
             <div class="row">
                 <div class="col-md-12">
-                                            <div class="alert alert-success" role="alert">
-                            <strong>Superbe !</strong> La tâche a bien été supprimée !
-                        </div>
                     
                     
-                                        <img class="slide-image" src="/img/todolist_content.jpg" alt="todo list">                </div>
+                        <h1>Bienvenue sur Todo List, l'application vous permettant de gérer l'ensemble de vos tâches sans effort !</h1>
+                    <img class="slide-image" src="/img/todolist_homepage.jpg" alt="todo list">                </div>
             </div>
 
             <br />
 
             <div class="row">
                 <div class="col-md-12">
-                        <a href="/tasks/create" class="btn btn-info pull-right">Créer une tâche</a>
-    <div class="row">
-                    <div class="alert alert-warning" role="alert">
-                Il n'y a pas encore de tâche enregistrée. <a href="/tasks/create" class="btn btn-warning pull-right">Créer une tâche</a>
-            </div>
-            </div>
+                        <div class="row">
+        <a href="/tasks/create" class="btn btn-success">Créer une nouvelle tâche</a>
+        <a href="/tasks-ToDo" class="btn btn-info">Consulter la liste des tâches à faire</a>
+        <a href="/tasks-finish" class="btn btn-secondary">Consulter la liste des tâches terminées</a>
+    </div>
                 </div>
             </div>
         </div>
@@ -91,14 +88,14 @@ Testing Project Test Suite
 </html>
 
 
-Time: 531 ms, Memory: 24.00 MB
+Time: 1.98 seconds, Memory: 24.00 MB
 
 There was 1 risky test:
 
-1) App\tests\Controller\TaskDeleteControllerTest::testDeleteTaskAction
+1) App\tests\Controller\SecurityControllerTest::testLogoutAction
 This test did not perform any assertions
 
-/Users/Adel/Documents/OpenClassroom/Projet8/ToDoList/tests/Controller/TaskDeleteControllerTest.php:8
+/Users/Adel/Documents/OpenClassroom/Projet8/ToDoList/tests/Controller/SecurityControllerTest.php:17
 
 [30;43mOK, but incomplete, skipped, or risky tests![0m
 [30;43mTests: 1[0m[30;43m, Assertions: 0[0m[30;43m, Risky: 1[0m[30;43m.[0m

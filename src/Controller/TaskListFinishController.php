@@ -15,11 +15,13 @@ class TaskListFinishController extends AbstractController
     public function listActionFinish(TaskRepository $repo)
     {
         $tasks = $repo->findByisDone(true);
+        $user = $this->getUser();
 
         return $this->render(
             'task/list.html.twig',
             ['tasks' => $tasks,
-            'listFinish' => true]
+            'listFinish' => true,
+            'user' => $user]
         );
     }
 }

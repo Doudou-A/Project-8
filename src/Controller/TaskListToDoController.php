@@ -14,11 +14,13 @@ class TaskListToDoController extends AbstractController
     public function listActionToDO(TaskRepository $repo)
     {
         $tasks = $repo->findByisDone(false);
+        $user = $this->getUser();
 
         return $this->render(
             'task/list.html.twig',
             ['tasks' => $tasks,
-            'listToDo' => true]
+            'listToDo' => true,
+            'user' => $user]
         );
     }
 }

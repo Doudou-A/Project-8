@@ -7,9 +7,17 @@ require('vendor/autoload.php');
 use App\Entity\Task;
 use App\Entity\User;
 use PHPUnit\Framework\TestCase;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class UserTest extends TestCase
 {
+    public function testId()
+    {
+        $user = new User();
+
+        $this->assertEquals(null, $user->getId());
+    }
+
     public function testUsername()
     {
         $user = new User();
@@ -48,12 +56,46 @@ class UserTest extends TestCase
         $this->assertEquals("PasswordTest", $user->getPassword());
     }
 
-    public function testTask()
+    public function testGetSalt()
+    {
+        $user = new User();
+
+        $this->assertEquals(null, $user->getSalt());
+    }
+
+    public function testEraseCredentialst()
+    {
+        $user = new User();
+
+        $this->assertEquals(null, $user->eraseCredentials());
+    }
+
+    public function testTaskAdd()
     {
         $task = new Task();
         $user = new User();
+
         $user->addTask($task);
-        dd($user->getTasks());
-        $this->assertEquals(new Task(), $user->getTasks());
+
+        $this->assertEquals($user, $task->getUser());
+    }   
+
+    public function testTaskRemove()
+    {
+        $task = new Task();
+        $user = new User();
+
+        $user->addTask($task);
+        $user->removeTask($task);
+
+        $this->assertEquals(null, $task->getUser());
+    }  
+    
+    public function testGetTask()
+    {
+        $user = new User();
+        $tasks = new ArrayCollection();
+
+        $this->assertEquals($tasks, $user->getTasks());
     }  
 }

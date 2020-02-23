@@ -11,8 +11,9 @@
 	{% elseif listToDo is defined %}
 		<h1>Liste des tâches à faire</h1>
 	{% endif %}
-
-	<a href="{{ path('task_create') }}" class="btn btn-info pull-right">Créer une tâche</a>
+	<div class="row col-12">
+		<a href="{{ path('task_create') }}" class="btn btn-info pull-right">Créer une tâche</a>
+	</div>
 	<div class="row">
 		{% for task in tasks %}
 			<div class="col-sm-4 col-lg-4 col-md-4">
@@ -29,6 +30,24 @@
 							<a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a>
 						</h4>
 						<p>{{ task.content }}</p>
+						{% if task.user %}
+							<div class="col-12">
+								<div class="col-md-4 d-flex align-items-center">
+									<div class="col-md-6">By:</div>
+									<div class="text-success col-md-3 p-0">
+										{{ task.user.username }}
+									</div>
+								</div>
+								<div class="col-md-6 d-flex align-items-center">
+									{% if task.user == user %}
+										<div class="col-md-3">Id:</div>
+										<div class="text-success col-md-6">
+											{{ task.id }}
+										</div>
+									{% endif %}
+								</div>
+							</div>
+						{% endif %}
 					</div>
 					<div>
 						<form action="{{ path('task_toggle', {'id' : task.id }) }}">
@@ -46,7 +65,6 @@
 		{% else %}
 			<div class="alert alert-warning" role="alert">
 				Il n'y a pas encore de tâche enregistrée.
-				<a href="{{ path('task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
 			</div>
 		{% endfor %}
 	</div>

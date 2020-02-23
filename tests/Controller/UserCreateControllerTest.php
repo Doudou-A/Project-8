@@ -1,6 +1,7 @@
 <?php
 namespace App\tests\Controller;
 
+use App\Tests\Entity\UserTest;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class UserCreateControllerTest extends WebTestCase
@@ -30,6 +31,5 @@ class UserCreateControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         $this->assertSame(1, $crawler->filter('html:contains("L\'utilisateur ajouté avec succès !")')->count()); 
-
     }
 }

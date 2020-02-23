@@ -2,7 +2,7 @@ security:
     encoders:
         AppBundle\Entity\User: bcrypt
         App\Entity\User:
-            algorithm: auto
+            algorithm: bcrypt
 
 
     providers:
@@ -25,7 +25,7 @@ security:
             pattern: ^/
             form_login:
                 login_path: login
-                check_path: login_check
+                check_path: login
                 always_use_default_target_path:  true
                 default_target_path:  /
             logout: ~

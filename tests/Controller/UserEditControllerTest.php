@@ -29,7 +29,6 @@ class UserEditControllerTest extends WebTestCase
         
         $crawler = $client->followRedirect();
 
-        /* echo $client->getResponse()->getContent(); */ 
         $this->assertSame(1, $crawler->filter('html:contains("L\'utilisateur a bien été modifié")')->count());   
     }
 }

@@ -2,12 +2,8 @@
 
 namespace App\Service;
 
-use App\Entity\Task;
 use App\Form\UserType;
-use App\Repository\TaskRepository;
-use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 

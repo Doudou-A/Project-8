@@ -8,11 +8,12 @@ class SecurityControllerTest extends WebTestCase
     public function testLoginAction()
     {
         $client = static::createClient();
-        $client->request('GET', '/login');
+        $crawler = $client->request('GET', '/login');
 
         $this->assertSame(200, $client->getResponse()->getStatusCode());
+        $this->assertSame(1, $crawler->filter('html:contains("Nom d\'utilisateur :")')->count());
     }
-
+    
     public function testLogoutAction()
     {
         $client = static::createClient([], [
@@ -22,8 +23,10 @@ class SecurityControllerTest extends WebTestCase
 
         $client->request('GET', '/logout');
 
-        $client->followRedirect();
+        $crawler = $client->followRedirect();
 
+       /*  echo $client->getResponse()->getContent(); */
         $this->assertSame(200, $client->getResponse()->getStatusCode());
+        $this->assertSame(1, $crawler->filter('html:contains("Bienvenue sur Todo List, l\'application vous permettant de gérer l\'ensemble de vos tâches sans effort !")')->count());
     }
 }

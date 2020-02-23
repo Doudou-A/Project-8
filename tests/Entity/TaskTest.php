@@ -11,6 +11,13 @@ use PHPUnit\Framework\TestCase;
 
 class TaskTest extends TestCase
 {
+    public function testId()
+    {
+        $task = new Task();
+
+        $this->assertEquals(null, $task->getId());
+    }
+
     public function testCreateAt()
     {
         $task = new Task();
