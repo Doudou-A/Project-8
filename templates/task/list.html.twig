@@ -47,6 +47,15 @@
 									{% endif %}
 								</div>
 							</div>
+						{% elseif task.user == null %}
+							<div class="col-12">
+								<div class="col-md-4 d-flex align-items-center">
+									<div class="col-md-6">By:</div>
+									<div class="text-success col-md-3 p-0">
+										Anonyme
+									</div>
+								</div>
+							</div>
 						{% endif %}
 					</div>
 					<div>
